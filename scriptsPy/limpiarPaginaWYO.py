@@ -1,5 +1,5 @@
 import re;
-import urllib2;
+import urllib.request;
 
 def getURL(a, m, d, e):
     return "http://weather.uwyo.edu/cgi-bin/sounding?region=naconf&TYPE=TEXT%3ALIST&YEAR=" + a + "&MONTH=" + m + "&FROM=" + d + "12&TO=" + d + "12&STNM=" + e;
@@ -12,12 +12,12 @@ def limpiarPagina(p):
         return m.group(2);
     
     
-url = getURL('2015', '10', '16', 'MROC');
-pagina = urllib2.urlopen(url).read();
+url = getURL('2008', '09', '13', 'MROC');
+pagina = urllib.request.urlopen(url).read().decode('utf-8');
 
 
-
-print limpiarPagina(pagina);
+#print(pagina);
+print(limpiarPagina(pagina));
 
 
 

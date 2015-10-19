@@ -6,7 +6,7 @@ diferencia = datetime.timedelta(days=1);
 
 
 while(actual.year != 2014):
-    print actual.year, actual.month, actual.day;
+    print(actual.year, actual.month, actual.day);
 
 
     # condicion decremento
