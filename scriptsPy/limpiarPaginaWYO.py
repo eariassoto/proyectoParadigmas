@@ -11,13 +11,26 @@ def limpiarPagina(p):
     else:
         return m.group(2);
     
-    
-url = getURL('2008', '09', '13', 'MROC');
+def getIndiceMatriz(s):
+    return None;
+
+
+url = getURL('2015', '02', '10', 'MROC');
 pagina = urllib.request.urlopen(url).read().decode('utf-8');
+datos = limpiarPagina(pagina);
 
+a = [];
+for i in range(24):
+    a.append("-1");
+print(a);
 
-#print(pagina);
-print(limpiarPagina(pagina));
+if(datos != None):
+    datos = datos.splitlines();
+    datos.pop(0);
 
-
+    for linea in datos:
+        d = linea.strip().split(":");
+        print(d);
+else:
+    print(None);
 
