@@ -1,5 +1,5 @@
 import re;
-import urllib.request;
+import urllib2;
 import datetime;
 from datetime import timedelta;
 
@@ -47,7 +47,7 @@ def getDay(a, m, d, e):
     dayRow[2] = d;
     
     url = getURL(a, m, d, e);
-    pagina = urllib.request.urlopen(url).read().decode('utf-8');
+    pagina = urllib2.urlopen(url).read();
     datos = limpiarPagina(pagina);
 
     if(datos != None):
@@ -63,7 +63,7 @@ def getDay(a, m, d, e):
             s = s + sub + " ";
         
 
-        with open("../datos/datos-limpios/datos-atmosfericos.txt", mode='a') as file:
+        with open("../datos/datos-limpios/datos-atmosfericos-"+e+".txt", mode='a') as file:
             file.write('%s\n' % (s));
 
 while(actual.year != 1995):
