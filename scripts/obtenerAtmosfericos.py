@@ -66,11 +66,17 @@ def getDay(a, m, d, e):
         with open("../datos/datos-limpios/datos-atmosfericos-"+e+".txt", mode='a') as file:
             file.write('%s\n' % (s));
 
-while(actual.year != 1995):
-    getDay(str(actual.year), str(actual.month), str(actual.day), '72451');
-    # condicion decremento
-    actual = actual-diferencia;
+def getDatos(e):
+    actual = datetime.datetime.now();
+    while(actual.year != 1995):
+        getDay(str(actual.year), str(actual.month), str(actual.day), e);
+        # condicion decremento
+        actual = actual-diferencia;
 
+getDatos('72451'); # Dodge City, KA
+getDatos('74455'); # Davenport IA
+getDatos('72357'); # Norman OK
+ 
 print("termine");
 
 
