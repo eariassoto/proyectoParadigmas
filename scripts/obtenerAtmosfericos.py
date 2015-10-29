@@ -5,28 +5,15 @@ from datetime import timedelta;
 
 indexes = {'Showalter index': 3,
            'Lifted index': 4,
-           'LIFT computed using virtual temperature': 5,
-           'SWEAT index': 6,
-           'K index': 7,
-           'Cross totals index': 8,
-           'Vertical totals index': 9,
-           'Totals totals index': 10,
-           'Convective Available Potential Energy': 11,
-           'CAPE using virtual temperature': 12,
-           'Convective Inhibition': 13,
-           'CINS using virtual temperature': 14,
-           'Equilibrum Level': 15,
-           'Equilibrum Level using virtual temperature': 16,
-           'Level of Free Convection': 17,
-           'LFCT using virtual temperature': 18,
-           'Bulk Richardson Number': 19,
-           'Bulk Richardson Number using CAPV': 20,
-           'Temp [K] of the Lifted Condensation Level': 21,
-           'Pres [hPa] of the Lifted Condensation Level': 22,
-           'Mean mixed layer potential temperature': 23,
-           'Mean mixed layer mixing ratio': 24,
-           '1000 hPa to 500 hPa thickness': 25,
-           'Precipitable water [mm] for entire sounding': 26
+           'SWEAT index': 5,
+           'K index': 6,
+           'Cross totals index': 7,
+           'Vertical totals index': 8,
+           'Totals totals index': 9,
+           'Convective Available Potential Energy': 10,
+           'Convective Inhibition': 11,
+           'Bulk Richardson Number': 12,
+           'Precipitable water [mm] for entire sounding': 13
            };
 
 actual = datetime.datetime.now();
@@ -52,7 +39,7 @@ def addToRow(d, dayRow):
 
 def getDay(a, m, d, e):
     dayRow = [];
-    for i in range(27):
+    for i in range(14):
         dayRow.append("-1");
 
     dayRow[0] = a;
@@ -80,7 +67,7 @@ def getDay(a, m, d, e):
             file.write('%s\n' % (s));
 
 while(actual.year != 1995):
-    getDay(str(actual.year), str(actual.month), str(actual.day), 'MROC');
+    getDay(str(actual.year), str(actual.month), str(actual.day), '72451');
     # condicion decremento
     actual = actual-diferencia;
 
