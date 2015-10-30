@@ -1,4 +1,4 @@
-with open("../datos/datos-entrada/datos95-05.txt") as f:
+with open("../datos/datos-precipitacion-72451.txt") as f:
     datoG = "";
     for line in f:
         line.strip();
@@ -10,16 +10,16 @@ with open("../datos/datos-entrada/datos95-05.txt") as f:
         datoF = year + " " + month + " " + day;
         
         
-        if (words[19] == '99.99'):
-            st1 = words[19] 
+        if (words[25] == '99.99'):
+            st1 = words[25] 
             st1 = '-1';
             datoF += " " + st1;
             
         else:
-            st = words[19].strip(); 
+            st = words[25].strip(); 
             st = st[:-1]
             datoF += " " + st;
 
         datoG += datoF + "\n";
-    with open("../datos/datos-limpios/datos-precipitacion.txt", mode='a') as file:
+    with open("../datos/datos-limpios/datos-precipitacion-72451.txt", mode='a') as file:
         file.write('%s' % (datoG));
