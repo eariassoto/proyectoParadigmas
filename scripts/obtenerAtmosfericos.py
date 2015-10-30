@@ -73,7 +73,7 @@ def getDatos(e):
         # condicion decremento
         actual = actual-diferencia;
 
-getDatos('722202'); # Miami 
+getDatos('72202'); # Miami 
  
 print("termine");
 
