@@ -63,7 +63,7 @@ def getDay(a, m, d, e):
             s = s + sub + " ";
         
 
-        with open("../datos/datos-limpios/datos-atmosfericos-"+e+".txt", mode='a') as file:
+        with open("../datos/datos-atmosfericos-"+e+".txt", mode='a') as file:
             file.write('%s\n' % (s));
 
 def getDatos(e):
@@ -73,9 +73,7 @@ def getDatos(e):
         # condicion decremento
         actual = actual-diferencia;
 
-getDatos('72451'); # Dodge City, KA
-getDatos('74455'); # Davenport IA
-getDatos('72357'); # Norman OK
+getDatos('722202'); # Miami 
  
 print("termine");
 
