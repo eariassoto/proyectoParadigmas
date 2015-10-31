@@ -73,13 +73,13 @@ model = svmtrain(trn_data.y, trn_data.X, optparam.libsvm);
 
 % MSE for test samples
 [y_hat, Acc, projection] = svmpredict(tst_data.y, tst_data.X, model);
-MSE_Test = mean((y_hat-tst_data.y).^2);
-NRMS_Test = sqrt(MSE_Test) / std(tst_data.y);
+MSE_Test = mean((y_hat-tst_data.y).^2)
+NRMS_Test = sqrt(MSE_Test) / std(tst_data.y)
 
 % MSE for training samples
 [y_hat, Acc, projection] = svmpredict(trn_data.y, trn_data.X, model);
-MSE_Train = mean((y_hat-trn_data.y).^2);
-NRMS_Train = sqrt(MSE_Train) / std(trn_data.y);
+MSE_Train = mean((y_hat-trn_data.y).^2)
+NRMS_Train = sqrt(MSE_Train) / std(trn_data.y)
 
 X = 0:0.01:1;
 X = X';
