@@ -1,10 +1,13 @@
-tmp = load('train.txt', '-ascii');
-trn_data.X = tmp(:,1);
-trn_data.y = tmp(:,2);
+Matriz = csvread('datos-finales-72202.csv');
 
-tmp = load('test.txt', '-ascii');
-tst_data.X = tmp(:,1);
-tst_data.y = tmp(:,2);
+% separo el 70% para entrenamiento y el otro para pruebas
+[TrainMat, TestMat] = split(Matriz, 3, 0); 
+
+trn_data.X = TrainMat(:, 4:14);
+trn_data.y = TrainMat(:, 15);
+
+tst_data.X = TestMat(:, 4:14);
+tst_data.y = TestMat(:, 15);
 
 [trn_data, tst_data, jn2] = scaleSVM(trn_data, tst_data, trn_data, 0, 1);
 

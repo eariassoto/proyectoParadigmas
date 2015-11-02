@@ -6,10 +6,10 @@ Matriz = csvread('datos-finales-72202.csv');
 % separo el 70% para entrenamiento y el otro para pruebas
 [TrainMat, TestMat] = split(Matriz, 3, 0); 
 
-trainData.X = TrainMat(:, 4:14);
+trainData.X = TrainMat(:, 11);
 trainData.y = TrainMat(:, 15);
 
-testData.X = TestMat(:, 4:14);
+testData.X = TestMat(:, 11);
 testData.y = TestMat(:, 15);
 
 
@@ -104,3 +104,15 @@ NRMS_Test = sqrt(MSE_Test) / std(testData.y);
 [y_hat, Acc, projection] = svmpredict(trainData.y, trainData.X, model);
 MSE_Train = mean((y_hat-trainData.y).^2);
 NRMS_Train = sqrt(MSE_Train) / std(trainData.y);
+
+X = 0:0.01:1;
+X = X';
+y = ones(length(X), 1);
+y_est = svmpredict(y, X, model);
+
+h = plot(trainData.X, trainData.y, 'ko', testData.X, testData.y, 'kx', X, y_est, 'r--');
+
+legend('Training', 'Test', 'Model');
+y1 = max([trainData.y; testData.y]);
+y2 = min([trainData.y; testData.y]);
+axis([0 1 y2 y1]);
